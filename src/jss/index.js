@@ -17,7 +17,7 @@ const jssInline = create({
   ]
 })
 
-const inlineStyles = style => jssInline.createRule(style).toJSON()
+const inlineStyle = style => jssInline.createRule(style).toJSON()
 
 jss.use(isolate({
   reset: {
@@ -26,5 +26,5 @@ jss.use(isolate({
   }
 }))
 
-export {jss, inlineStyles}
+export {jss, inlineStyle}
 export default injectSheet
