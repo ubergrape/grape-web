@@ -57,7 +57,8 @@ const styles = {
     display: 'inline-block',
     height: '1em',
     maxWidth: '100%',
-    userSelect: 'none'
+    userSelect: 'none',
+    fill: currentColor
   }
 }
 
