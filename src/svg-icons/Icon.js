@@ -58,7 +58,7 @@ const styles = {
     height: '1em',
     maxWidth: '100%',
     userSelect: 'none',
-    fill: currentColor
+    fill: 'currentColor'
   }
 }
 
