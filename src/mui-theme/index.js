@@ -1,14 +1,19 @@
 import {createMuiTheme} from 'material-ui/styles/theme'
 import {createPalette} from 'material-ui/styles/palette'
-import {white, green, grayBlueLighter} from 'grape-theme/dist/base-colors'
+import {Input} from 'material-ui/Input'
+import {
+  white, blue, red, green, grayBlueLighter, grayDark
+} from 'grape-theme/dist/base-colors'
 import merge from 'lodash/object/merge'
+import color from 'color'
 
 const palette = createPalette()
 
 palette.primary[100] = white
 palette.primary[500] = green
+palette.error[500] = red
 
-const LinearProgress = {
+const MuiLinearProgress = {
   root: {
     height: 9,
     borderRadius: 5
@@ -30,7 +35,7 @@ const LinearProgress = {
   }
 }
 
-const MenuItem = {
+const MuiMenuItem = {
   root: {
     height: 'auto',
     '&:hover': {
@@ -42,11 +47,48 @@ const MenuItem = {
   }
 }
 
+const inputHorizontalSpacing = 10
+
+const MuiInput = {
+  wrapper: {
+    border: {
+      width: 1,
+      style: 'solid',
+      color: color(grayBlueLighter).darken(0.05).hexString(),
+      radius: 5
+    },
+    padding: [0, inputHorizontalSpacing]
+  },
+  formControl: {
+    marginTop: 5,
+    marginBottom: 5
+  },
+  focused: {
+    borderColor: blue
+  },
+  error: {
+    borderColor: palette.error[500]
+  }
+}
+
+Input.defaultProps.underline = false
+
+const MuiFormLabel = {
+  root: {
+    marginLeft: inputHorizontalSpacing
+  },
+  focused: {
+    color: grayDark
+  }
+}
+
 export const create = theme => createMuiTheme(merge({
   palette,
   overrides: {
-    LinearProgress,
-    MenuItem
+    MuiLinearProgress,
+    MuiMenuItem,
+    MuiInput,
+    MuiFormLabel
   }
 }, theme))
 
