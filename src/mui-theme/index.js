@@ -2,16 +2,19 @@ import {createMuiTheme} from 'material-ui/styles/theme'
 import {createPalette} from 'material-ui/styles/palette'
 import {Input} from 'material-ui/Input'
 import {
-  white, blue, red, green, grayBlueLighter, grayDark
+  white, blue, red, green, grayBlueLighter, grayLighter, grayDark
 } from 'grape-theme/dist/base-colors'
 import merge from 'lodash/object/merge'
-import color from 'color'
 
 const palette = createPalette()
 
 palette.primary[100] = white
 palette.primary[500] = green
 palette.error[500] = red
+palette.accent.A200 = blue
+palette.text.primary = grayDark
+palette.text.divider = grayLighter
+palette.text.lightDivider = grayBlueLighter
 
 const MuiLinearProgress = {
   root: {
@@ -37,13 +40,7 @@ const MuiLinearProgress = {
 
 const MuiMenuItem = {
   root: {
-    height: 'auto',
-    '&:hover': {
-      backgroundColor: grayBlueLighter
-    },
-    '&:focus': {
-      backgroundColor: grayBlueLighter
-    }
+    height: 'auto'
   }
 }
 
@@ -54,7 +51,7 @@ const MuiInput = {
     border: {
       width: 1,
       style: 'solid',
-      color: color(grayBlueLighter).darken(0.05).hexString(),
+      color: palette.text.divider,
       radius: 5
     },
     padding: [0, inputHorizontalSpacing]
@@ -64,7 +61,7 @@ const MuiInput = {
     marginBottom: 5
   },
   focused: {
-    borderColor: blue
+    borderColor: palette.accent.A200
   },
   error: {
     borderColor: palette.error[500]
@@ -78,7 +75,7 @@ const MuiFormLabel = {
     marginLeft: inputHorizontalSpacing
   },
   focused: {
-    color: grayDark
+    color: palette.text.primary
   }
 }
 
