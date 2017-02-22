@@ -1,17 +1,26 @@
 import {createMuiTheme} from 'material-ui/styles/theme'
 import {createPalette} from 'material-ui/styles/palette'
-import {createTypography} from 'material-ui/styles/typography'
-import {white, green, grayBlueLighter} from 'grape-theme/dist/base-colors'
+import createTypography from 'material-ui/styles/typography'
+import {Input} from 'material-ui/Input'
+import {
+  white, blue, red, green, grayBlueLighter, grayLighter, grayDark
+} from 'grape-theme/dist/base-colors'
+import {normal} from 'grape-theme/dist/fonts'
 import merge from 'lodash/object/merge'
 
 const palette = createPalette()
 
 palette.primary[100] = white
 palette.primary[500] = green
+palette.error[500] = red
+palette.accent.A200 = blue
+palette.text.primary = grayDark
+palette.text.divider = grayLighter
+palette.text.lightDivider = grayBlueLighter
 
 export const typographyConstants = {
   fontFamily: '"proxima-nova", "Helvetica Neue", Arial, Helvetica, sans-serif',
-  fontSize: 14,
+  fontSize: normal.fontSize,
   fontWeightLight: 300,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
@@ -19,7 +28,7 @@ export const typographyConstants = {
 
 const typography = createTypography(palette, typographyConstants)
 
-const LinearProgress = {
+const MuiLinearProgress = {
   root: {
     height: 9,
     borderRadius: 5
@@ -41,15 +50,44 @@ const LinearProgress = {
   }
 }
 
-const MenuItem = {
+const MuiMenuItem = {
   root: {
-    height: 'auto',
-    '&:hover': {
-      backgroundColor: grayBlueLighter
+    height: 'auto'
+  }
+}
+
+const inputHorizontalSpacing = 10
+
+const MuiInput = {
+  wrapper: {
+    border: {
+      width: 1,
+      style: 'solid',
+      color: palette.text.divider,
+      radius: 5
     },
-    '&:focus': {
-      backgroundColor: grayBlueLighter
-    }
+    padding: [0, inputHorizontalSpacing]
+  },
+  formControl: {
+    marginTop: 5,
+    marginBottom: 5
+  },
+  focused: {
+    borderColor: palette.accent.A200
+  },
+  error: {
+    borderColor: palette.error[500]
+  }
+}
+
+Input.defaultProps.underline = false
+
+const MuiFormLabel = {
+  root: {
+    marginLeft: inputHorizontalSpacing
+  },
+  focused: {
+    color: palette.text.primary
   }
 }
 
@@ -57,8 +95,10 @@ export const create = theme => createMuiTheme(merge({
   typography,
   palette,
   overrides: {
-    LinearProgress,
-    MenuItem
+    MuiLinearProgress,
+    MuiMenuItem,
+    MuiInput,
+    MuiFormLabel
   }
 }, theme))
 
