@@ -1,10 +1,13 @@
 import {createMuiTheme} from 'material-ui/styles/theme'
 import {createPalette} from 'material-ui/styles/palette'
+import createTypography from 'material-ui/styles/typography'
 import {Input} from 'material-ui/Input'
 import {
   white, blue, red, green, grayBlueLighter, grayLighter, grayDark
 } from 'grape-theme/dist/base-colors'
+import {normal} from 'grape-theme/dist/fonts'
 import merge from 'lodash/object/merge'
+import color from 'color'
 
 const palette = createPalette()
 
@@ -12,9 +15,20 @@ palette.primary[100] = white
 palette.primary[500] = green
 palette.error[500] = red
 palette.accent.A200 = blue
+palette.accent.A100 = color(blue).lighten(0.2).rgbaString()
 palette.text.primary = grayDark
 palette.text.divider = grayLighter
 palette.text.lightDivider = grayBlueLighter
+
+export const typographyConstants = {
+  fontFamily: '"proxima-nova", "Helvetica Neue", Arial, Helvetica, sans-serif',
+  fontSize: normal.fontSize,
+  fontWeightLight: 300,
+  fontWeightRegular: 400,
+  fontWeightMedium: 500
+}
+
+const typography = createTypography(palette, typographyConstants)
 
 const MuiLinearProgress = {
   root: {
@@ -79,13 +93,26 @@ const MuiFormLabel = {
   }
 }
 
+const MuiButton = {
+  root: {
+    height: 'auto',
+    '&:hover': {
+      textDecoration: 'none',
+      backgroundColor: 'transparent',
+      color: palette.accent.A100
+    }
+  }
+}
+
 export const create = theme => createMuiTheme(merge({
+  typography,
   palette,
   overrides: {
     MuiLinearProgress,
     MuiMenuItem,
     MuiInput,
-    MuiFormLabel
+    MuiFormLabel,
+    MuiButton
   }
 }, theme))
 
