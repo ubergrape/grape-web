@@ -1,5 +1,6 @@
 import {createMuiTheme} from 'material-ui/styles/theme'
 import {createPalette} from 'material-ui/styles/palette'
+import {createTypography} from 'material-ui/styles/typography'
 import {white, green, grayBlueLighter} from 'grape-theme/dist/base-colors'
 import merge from 'lodash/object/merge'
 
@@ -7,6 +8,16 @@ const palette = createPalette()
 
 palette.primary[100] = white
 palette.primary[500] = green
+
+export const typographyConstants = {
+  fontFamily: '"proxima-nova", "Helvetica Neue", Arial, Helvetica, sans-serif',
+  fontSize: 14,
+  fontWeightLight: 300,
+  fontWeightRegular: 400,
+  fontWeightMedium: 500,
+}
+
+const typography = createTypography(palette, typographyConstants)
 
 const LinearProgress = {
   root: {
@@ -43,6 +54,7 @@ const MenuItem = {
 }
 
 export const create = theme => createMuiTheme(merge({
+  typography,
   palette,
   overrides: {
     LinearProgress,
