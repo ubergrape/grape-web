@@ -23,7 +23,7 @@ export const typographyConstants = {
   fontSize: normal.fontSize,
   fontWeightLight: 300,
   fontWeightRegular: 400,
-  fontWeightMedium: 500,
+  fontWeightMedium: 500
 }
 
 const typography = createTypography(palette, typographyConstants)
