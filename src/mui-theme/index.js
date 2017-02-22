@@ -3,7 +3,7 @@ import {createPalette} from 'material-ui/styles/palette'
 import createTypography from 'material-ui/styles/typography'
 import {Input} from 'material-ui/Input'
 import {
-  white, blue, red, green, grayBlueLighter, grayLighter, grayDark
+  white, blue, red, green, grayBlueLighter, grayLighter, grayDark, grayMercury
 } from 'grape-theme/dist/base-colors'
 import {normal} from 'grape-theme/dist/fonts'
 import merge from 'lodash/object/merge'
@@ -19,6 +19,7 @@ palette.accent.A100 = color(blue).lighten(0.2).rgbaString()
 palette.text.primary = grayDark
 palette.text.divider = grayLighter
 palette.text.lightDivider = grayBlueLighter
+palette.grey[200] = grayMercury
 
 export const typographyConstants = {
   fontFamily: '"proxima-nova", "Helvetica Neue", Arial, Helvetica, sans-serif',
@@ -65,7 +66,7 @@ const MuiInput = {
     border: {
       width: 1,
       style: 'solid',
-      color: palette.text.divider,
+      color: palette.grey[200],
       radius: 5
     },
     padding: [0, inputHorizontalSpacing]
