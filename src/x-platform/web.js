@@ -1,30 +1,22 @@
 import noop from 'lodash/utility/noop'
 
-const notificationsConfig = {
-  pageVisibility: true,
-  autoClose: 6000
-}
-
 /**
  * Create native html notification.
  */
 export function createNotification({title, content, icon}, callback = noop) {
-  // Notify lands to `html5-desktop-notifications`
-  // used in `grape-web-client`.
-  const {notify} = window
-  if (!notify) return
-  notify.config(notificationsConfig)
-  const notification = notify.createNotification(title, {
+  if (!Notification) return
+  const n = new Notification(title, {
     icon,
     tag: title,
     body: content,
     silent: true,
-    onclick: () => {
+    onclick: function onclick() {
       window.focus()
-      notification.close()
+      this.close()
       callback()
     }
   })
+  setTimeout(n.close.bind(n), 6000)
 }
 
 /**
