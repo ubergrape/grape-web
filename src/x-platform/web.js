@@ -5,7 +5,7 @@ import noop from 'lodash/utility/noop'
  */
 export function createNotification({title, content, icon}, callback = noop) {
   if (!Notification) return
-  const n = new Notification(title, {
+  Notification(title, {
     icon,
     tag: title,
     body: content,
@@ -16,7 +16,6 @@ export function createNotification({title, content, icon}, callback = noop) {
       callback()
     }
   })
-  setTimeout(n.close.bind(n), 6000)
 }
 
 /**
