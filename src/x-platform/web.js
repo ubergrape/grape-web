@@ -7,7 +7,6 @@ export function createNotification({title, content, icon}, callback = noop) {
   if (!Notification) return
   Notification(title, {
     icon,
-    tag: title,
     body: content,
     silent: true,
     onclick: () => {
