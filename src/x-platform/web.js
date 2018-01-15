@@ -10,7 +10,7 @@ export function createNotification({title, content, icon}, callback = noop) {
     tag: title,
     body: content,
     silent: true,
-    onclick: function onclick() {
+    onclick: () => {
       window.focus()
       this.close()
       callback()
