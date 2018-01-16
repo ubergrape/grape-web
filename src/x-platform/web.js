@@ -4,14 +4,14 @@ import noop from 'lodash/utility/noop'
  * Create native html notification.
  */
 export function createNotification({title, content, icon}, callback = noop) {
-  if (!Notification) return
-  Notification(title, {
+  if (!window.Notification) return
+  const n = new Notification(title, {
     icon,
     body: content,
     silent: true,
     onclick: () => {
       window.focus()
-      this.close()
+      n.close()
       callback()
     }
   })
