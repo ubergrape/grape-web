@@ -1,3 +1,1 @@
-import Popover from 'material-ui/Popover'
-
-export default Popover
+export {default} from 'material-ui/Popover'

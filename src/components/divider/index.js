@@ -1,4 +1,1 @@
-import Divider from 'material-ui/Divider'
-
-
-export default Divider
+export {default} from 'material-ui/Divider'

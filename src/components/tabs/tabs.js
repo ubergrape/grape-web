@@ -1,3 +1,1 @@
-import Tabs from 'material-ui/Tabs'
-
-export default Tabs
+export {default} from 'material-ui/Tabs'

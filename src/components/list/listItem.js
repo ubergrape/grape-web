@@ -1,3 +1,1 @@
-import ListItem from 'material-ui/List/ListItem'
-
-export default ListItem
+export {default} from 'material-ui/List/ListItem'

@@ -1,3 +1,1 @@
-import FormControl from 'material-ui/Form/FormControl'
-
-export default FormControl
+export {default} from 'material-ui/Form/FormControl'

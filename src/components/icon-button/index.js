@@ -1,3 +1,1 @@
-import IconButton from 'material-ui/IconButton'
-
-export default IconButton
+export {default} from 'material-ui/IconButton'

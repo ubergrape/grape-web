@@ -1,3 +1,1 @@
-import Chip from 'material-ui/Chip'
-
-export default Chip
+export {default} from 'material-ui/Chip'

@@ -1,4 +1,4 @@
-import injectSheet, {jss, JssProvider} from 'react-jss'
+import injectSheet, {jss, ThemeProvider, JssProvider} from 'react-jss'
 import {create} from 'jss'
 import isolate from 'jss-isolate'
 import extend from 'jss-extend'
@@ -43,7 +43,7 @@ jss
 export const Styled = createStyled(jss)
 export const styled = Styled()
 
-export {JssProvider, jss}
+export {JssProvider, ThemeProvider, jss}
 
 export default (styles, options = {}) => injectSheet(styles, {
   inject: ['classes', 'sheet', 'theme'],

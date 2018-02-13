@@ -1,3 +1,1 @@
-import ListItemIcon from 'material-ui/List/ListItemIcon'
-
-export default ListItemIcon
+export {default} from 'material-ui/List/ListItemIcon'

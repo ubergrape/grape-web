@@ -1,3 +1,1 @@
-import Input from 'material-ui/Input'
-
-export default Input
+export {default} from 'material-ui/Input'
