@@ -1,6 +1,6 @@
 import {matchPath} from 'react-router-dom'
 
-import {channel, pm} from '../../router'
+import {routes} from '../../router'
 import parseUrl from '../../parse-url'
 
 const onForeign = (pathOrUrl, {onExternal}) => {
@@ -61,7 +61,7 @@ const onChannel = (pathOrUrl, options) => {
 
 const onChat = (pathOrUrl, options) => {
   const {pathname, hostname} = options
-  const channelMatch = matchPath(pathname, {path: channel})
+  const channelMatch = matchPath(pathname, {path: routes.channel})
   if (channelMatch) {
     onChannel(pathOrUrl, {
       ...options,
@@ -69,7 +69,7 @@ const onChat = (pathOrUrl, options) => {
     })
     return
   }
-  const pmMatch = matchPath(pathname, {path: pm})
+  const pmMatch = matchPath(pathname, {path: routes.pm})
   if (pmMatch) {
     onPm(pathOrUrl, {
       ...options,
