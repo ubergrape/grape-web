@@ -88,5 +88,4 @@ export function removeBadge() {
   electron.ipcRenderer.send('removeBadge')
 }
 
-export const isElectron = () =>
-  get(window, 'process.versions.electron')
+export const isElectron = get(window, 'process.versions.electron')

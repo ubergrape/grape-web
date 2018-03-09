@@ -2,7 +2,7 @@ import * as web from './web'
 import * as electron from './electron'
 
 let implementation = web
-if (electron.isElectron()) {
+if (electron.isElectron) {
   implementation = electron
 }
 
@@ -27,3 +27,5 @@ export function removeBadge(...args) {
   if (implementation.removeBadge) return implementation.removeBadge(...args)
   return null
 }
+
+export getMode from './mode'
