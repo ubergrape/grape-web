@@ -1,13 +1,9 @@
 import * as web from './web'
 import * as electron from './electron'
-import * as macGap from './macGap'
 
 let implementation = web
-const {process, MacGap} = window
-if (process && process.versions && process.versions.electron) {
+if (electron.isElectron()) {
   implementation = electron
-} else if (MacGap) {
-  implementation = macGap
 }
 
 export function createNotification(...args) {
