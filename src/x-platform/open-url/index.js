@@ -109,6 +109,12 @@ const onChat = (pathOrUrl, options) => {
   }
 }
 
+const onCall = (pathOrUrl, options) => {
+  const { pathname, onRedirect } = options
+  // jitsi urls are full urls and not only pathnames
+  onRedirect(`${pathname}`)
+}
+
 const onRootAndFull = (pathOrUrl, options) => {
   const { onExternal, onRedirect, mode, pathname, serviceUrl, search } = options
   if (mode === 'embedded') {
@@ -145,6 +151,10 @@ export default (pathOrUrl, options) => {
       onChatPath(pathOrUrl, { ...options, hostname, pathname })
     }
     onChat(pathOrUrl, { ...options, hostname, pathname })
+    return
+  }
+  if (pathname.substr(0, 14) === '/call/jitsire/') {
+    onCall(pathOrUrl, { ...options, hostname, pathname })
     return
   }
   if (pathname === '/' || mode === 'full') {
