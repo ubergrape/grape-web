@@ -1,4 +1,4 @@
-import createTypography from 'material-ui/styles/createTypography'
+import createTypography from '@material-ui/core/styles/createTypography'
 import { normal } from 'grape-theme/dist/fonts'
 import palette from './palette'
 

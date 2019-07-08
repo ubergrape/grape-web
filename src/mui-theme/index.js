@@ -1,4 +1,4 @@
-import createMuiTheme from 'material-ui/styles/createMuiTheme'
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import merge from 'lodash/merge'
 import palette from './palette'
 import zIndex from './zIndex'

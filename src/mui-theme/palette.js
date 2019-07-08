@@ -1,4 +1,4 @@
-import createPalette, { light } from 'material-ui/styles/createPalette'
+import createPalette, { light } from '@material-ui/core/styles/createPalette'
 import {
   white,
   blue,
@@ -16,7 +16,7 @@ import {
   grayBombay,
   grayDarker,
 } from 'grape-theme/dist/base-colors'
-import orangePalette from 'material-ui/colors/orange'
+import orangePalette from '@material-ui/core/colors/orange'
 import color from 'color'
 
 const palette = createPalette(light)

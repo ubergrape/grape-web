@@ -58,10 +58,10 @@ export const MuiInput = {
     marginTop: 5,
     marginBottom: 5,
   },
-  focused: {
+  '&$focused': {
     borderColor: palette.secondary.A200,
   },
-  error: {
+  '&$error': {
     borderColor: palette.error[500],
   },
 }
@@ -70,10 +70,10 @@ export const MuiFormLabel = {
   root: {
     marginLeft: inputHorizontalSpacing,
   },
-  focused: {
+  '&$focused': {
     color: palette.text.primary,
   },
-  error: {
+  '&$error': {
     color: palette.error[500],
   },
 }
