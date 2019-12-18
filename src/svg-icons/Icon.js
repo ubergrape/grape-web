@@ -17,10 +17,12 @@ const getData = (() => {
   const attrNames = ['width', 'height', 'viewBox', 'xmlns']
 
   return name => {
-    if (cache[name]) return cache[name]
+    let icon = name
+    if (!icon) icon = 'file'
+    if (cache[icon]) return cache[icon]
     const data = {}
-    cache[name] = data
-    div.innerHTML = raw[name]
+    cache[icon] = data
+    div.innerHTML = raw[icon]
     const svg = div.firstChild
     data.html = svg.innerHTML
     data.attrs = attrNames.reduce((attrs, attr) => {
