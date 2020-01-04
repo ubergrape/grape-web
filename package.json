@@ -69,7 +69,7 @@
     "react-styleguidist": "^5.1.1",
     "svgo": "^0.6.0",
     "webpack": "^1.10.1",
-    "webpack-dev-server": "^1.10.1"
+    "webpack-dev-server": "^3.1.11"
   },
   "scripts": {
     "all": "yarn lint && yarn test && yarn build",
